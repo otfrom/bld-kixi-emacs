@@ -15,6 +15,13 @@
 
 (straight-use-package 'use-package)
 ;; (setq straight-use-package-by-default t)
+(setq use-package-always-demand t)
 
 (use-package kixi-emacs
-  :straight (kixi-emacs :type git :repo "https://github.com/MastodonC/kixi-emacs.git"))
+  :straight (kixi-emacs :type git :repo "https://github.com/MastodonC/kixi-emacs.git")
+  :demand t)
+
+(use-package evil-tutor
+  :straight t)
+
+(require 'kixi-emacs)
