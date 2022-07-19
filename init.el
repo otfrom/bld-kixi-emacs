@@ -154,3 +154,5 @@
   :after org
   :config (global-org-modern-mode))
 
+(use-package 2048-game)
+
