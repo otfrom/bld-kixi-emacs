@@ -158,13 +158,9 @@
 
 (use-package ess :defer t)
 
-(use-package commify)
-;; 1234567890
-
 ;; Enabling desktop-save-mode will save and restore all buffers between sessions
 (setq desktop-restore-frames 't)
 (desktop-save-mode 1)
-
 
 
 (provide 'init)
