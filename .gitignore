@@ -2,3 +2,5 @@
 /straight/
 /eln-cache/
 /.cache/
+/forge-database.sqlite
+/transient/
