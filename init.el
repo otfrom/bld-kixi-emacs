@@ -165,3 +165,6 @@
 (setq desktop-restore-frames 't)
 (desktop-save-mode 1)
 
+
+
+(provide 'init)
