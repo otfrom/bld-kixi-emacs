@@ -156,3 +156,5 @@
 
 (use-package 2048-game)
 
+(use-package ess :defer t)
+
