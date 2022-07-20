@@ -199,9 +199,28 @@
 
 (use-package helpful
   :straight t)
+
+;; This is ~separedit~, which was initially set to be org-mode, but
+;; probably incorrectly. I'm not  sure this is the way we want it set up
+;; but we can experiment with it from here
+(use-package separedit
+  :straight t
+  :config
+  (setq separedit-default-mode 'org-mode))
+(general-create-definer kixi-prog-definer
+  :states '(normal visual)
+  :keymaps 'prog-mode-map
+  :prefix ",")
+(kixi-prog-definer
+ :infix "c"
+ "" '(:ignore t "comment")
+ "e" 'separedit)
+
+
 ;; Enabling desktop-save-mode will save and restore all buffers between sessions
 (setq desktop-restore-frames 't)
 (desktop-save-mode 1)
 (savehist-mode 1)
 (server-start)
+
 (provide 'init)
