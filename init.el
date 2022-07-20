@@ -28,6 +28,7 @@
   :straight t)
 
 (require 'kixi-emacs)
+(require 'general)
 
 (use-package magit
   :straight t
@@ -151,6 +152,31 @@
                  (direction . right)
                  (window-width . 0.33)
                  (window-height . fit-window-to-buffer))))
+(kixi-leader-def
+  :infix "r"
+  "" '(:ignore t :wk "org")
+  "t" 'org-roam-dailies-goto-today
+  "T" 'org-roam-dailies-capture-today
+  "d" 'org-roam-dailies-goto-date
+  "D" 'org-roam-dailies-capture-date
+  "f" 'org-roam-node-find
+  "l" 'org-insert-link
+  "s" 'org-store-link
+  ;; "o" ' ; this will be whatever opens links
+  )
+
+(general-create-definer kixi-org-definer
+  :states '(normal visual)
+  :keymaps 'org-mode-map
+  :prefix ",")
+
+(kixi-org-definer
+  :infix "r"
+  "" '(:ignore t :wk "org")
+  "i" 'org-roam-node-insert)
+
+(kixi-org-definer
+  "TAB" 'org-cycle)
 
 (use-package org-transclusion
   :straight t
