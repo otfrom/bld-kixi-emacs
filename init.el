@@ -212,10 +212,31 @@
   :keymaps 'prog-mode-map
   :prefix ",")
 (kixi-prog-definer
- :infix "c"
- "" '(:ignore t "comment")
- "e" 'separedit)
+  :infix "c"
+  "" '(:ignore t "comment")
+  "e" 'separedit)
 
+(setq org-appear-trigger 'manual)
+(add-hook 'org-mode-hook (lambda ()
+                           (add-hook 'evil-insert-state-entry-hook
+                                     #'org-appear-manual-start
+                                     nil
+                                     t)
+                           (add-hook 'evil-insert-state-exit-hook
+                                     #'org-appear-manual-stop
+                                     nil
+                                     t)))
+(customize-set-variable 'org-return-follows-link t)
+(customize-set-variable 'org-mouse-1-follows-link t)
+
+;; Display links as the description provided
+(customize-set-variable 'org-link-descriptive t)
+
+;; Hide markup markers
+(customize-set-variable 'org-hide-emphasis-markers t)
+
+(straight-use-package '(org-appear :type git :host github :repo "awth13/org-appear"))
+(add-hook 'org-mode-hook 'org-appear-mode)
 
 ;; Enabling desktop-save-mode will save and restore all buffers between sessions
 (setq desktop-restore-frames 't)
