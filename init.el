@@ -201,5 +201,5 @@
 (setq desktop-restore-frames 't)
 (desktop-save-mode 1)
 (savehist-mode 1)
-
+(server-start)
 (provide 'init)
