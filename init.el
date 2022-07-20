@@ -174,6 +174,6 @@
 ;; Enabling desktop-save-mode will save and restore all buffers between sessions
 (setq desktop-restore-frames 't)
 (desktop-save-mode 1)
-
+(savehist-mode 1)
 
 (provide 'init)
