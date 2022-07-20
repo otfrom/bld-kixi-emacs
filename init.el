@@ -17,6 +17,9 @@
 ;; (setq straight-use-package-by-default t)
 (setq use-package-always-demand t)
 
+;; Get the version of org from the repo
+(straight-use-package 'org)
+
 (use-package kixi-emacs
   :straight (kixi-emacs :type git :repo "https://github.com/MastodonC/kixi-emacs.git")
   :demand t)
@@ -27,6 +30,7 @@
 (require 'kixi-emacs)
 
 (use-package magit
+  :straight t
   :init
   (setq magit-diff-refine-hunk t)
   (setq magit-repository-directories
@@ -56,9 +60,11 @@
 
 (setq auth-sources '("~/.authinfo"))
 (use-package forge
+  :straight t
   :after magit)
 
 (use-package blamer
+  :straight t
   ;; :bind (("s-i" . blamer-show-commit-info))
   :defer 20
   :custom
@@ -74,6 +80,7 @@
   )
 
 (use-package git-auto-commit-mode
+  :straight t
   :diminish "🦾")
 
 ;; Language-specific packages
@@ -105,6 +112,7 @@
           ("CANCELLED" . (:foreground "forest green")))))
 
 (use-package org-roam
+  :straight t
   :after org
   :init
   (setq org-roam-v2-ack t)
@@ -145,18 +153,23 @@
                  (window-height . fit-window-to-buffer))))
 
 (use-package org-transclusion
+  :straight t
   :after org
   :init
   (setq org-transclusion-open-source-display-action-list '(display-buffer-same-window))
   (setq org-transclusion-add-all-on-activate t))
 
 (use-package org-modern
+  :straight t
   :after org
   :config (global-org-modern-mode))
 
-(use-package 2048-game)
+(use-package 2048-game
+  :straight t)
 
-(use-package ess :defer t)
+(use-package ess
+  :straight t
+  :defer t)
 
 ;; Enabling desktop-save-mode will save and restore all buffers between sessions
 (setq desktop-restore-frames 't)
