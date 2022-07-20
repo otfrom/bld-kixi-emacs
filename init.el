@@ -197,6 +197,8 @@
   :straight t
   :defer t)
 
+(use-package helpful
+  :straight t)
 ;; Enabling desktop-save-mode will save and restore all buffers between sessions
 (setq desktop-restore-frames 't)
 (desktop-save-mode 1)
