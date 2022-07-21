@@ -151,32 +151,39 @@
                  (display-buffer-in-direction)
                  (direction . right)
                  (window-width . 0.33)
-                 (window-height . fit-window-to-buffer))))
-(kixi-leader-def
-  :infix "r"
-  "" '(:ignore t :wk "org")
-  "t" 'org-roam-dailies-goto-today
-  "T" 'org-roam-dailies-capture-today
-  "d" 'org-roam-dailies-goto-date
-  "D" 'org-roam-dailies-capture-date
-  "f" 'org-roam-node-find
-  "l" 'org-insert-link
-  "s" 'org-store-link
-  ;; "o" ' ; this will be whatever opens links
-  )
+                 (window-height . fit-window-to-buffer)))
+  :general 
+  (kixi-leader-def
+    :infix "r"
+    "" '(:ignore t :wk "org")
+    "t" 'org-roam-dailies-goto-today
+    "T" 'org-roam-dailies-capture-today
+    "d" 'org-roam-dailies-goto-date
+    "D" 'org-roam-dailies-capture-date
+    "f" 'org-roam-node-find
+    "l" 'org-insert-link
+    "s" 'org-store-link
+    ;; "o" ' ; this will be whatever opens links
+    )
 
-(general-create-definer kixi-org-definer
-  :states '(normal visual)
-  :keymaps 'org-mode-map
-  :prefix ",")
+  (kixi-mode-leader-def
+    :keymaps 'org-mode-map
+    "r" '(:ignore t :wk "roam")
+    "ri" 'org-roam-node-insert
+    "TAB" 'org-cycle))
 
-(kixi-org-definer
-  :infix "r"
-  "" '(:ignore t :wk "org")
-  "i" 'org-roam-node-insert)
+;; (general-create-definer kixi-org-definer
+;;   :states '(normal visual)
+;;   :keymaps 'org-mode-map
+;;   :prefix ",")
 
-(kixi-org-definer
-  "TAB" 'org-cycle)
+;; (kixi-org-definer
+;;   :infix "r"
+;;   "" '(:ignore t :wk "org")
+;;   "i" 'org-roam-node-insert)
+
+;; (kixi-org-definer
+;;   "TAB" 'org-cycle)
 
 (use-package org-transclusion
   :straight t
