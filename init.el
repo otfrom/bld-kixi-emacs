@@ -204,17 +204,17 @@
 ;; probably incorrectly. I'm not  sure this is the way we want it set up
 ;; but we can experiment with it from here
 (use-package separedit
+  :disabled t ;; I can't get the keybinding to work consistently
   :straight t
   :config
-  (setq separedit-default-mode 'org-mode))
-(general-create-definer kixi-prog-definer
-  :states '(normal visual)
-  :keymaps 'prog-mode-map
-  :prefix ",")
-(kixi-prog-definer
-  :infix "c"
-  "" '(:ignore t "comment")
-  "e" 'separedit)
+  (setq separedit-default-mode 'org-mode)
+  :general
+  (kixi-mode-leader-def
+    :keymaps 'prog-mode-map
+    :prefix "c"
+    "" '(:ignore t "comment")
+    "e" 'separedit))
+(define-key prog-mode-map        (kbd "C-c '") #'separedit)
 
 (setq org-appear-trigger 'manual)
 (add-hook 'org-mode-hook (lambda ()
