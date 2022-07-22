@@ -161,29 +161,17 @@
     "d" 'org-roam-dailies-goto-date
     "D" 'org-roam-dailies-capture-date
     "f" 'org-roam-node-find
-    "l" 'org-insert-link
-    "s" 'org-store-link
-    ;; "o" ' ; this will be whatever opens links
-    )
+    "s" 'org-store-link)
 
   (kixi-mode-leader-def
     :keymaps 'org-mode-map
+    "TAB" 'org-cycle
+    "o" 'org-open-at-point
     "r" '(:ignore t :wk "roam")
     "ri" 'org-roam-node-insert
-    "TAB" 'org-cycle))
-
-;; (general-create-definer kixi-org-definer
-;;   :states '(normal visual)
-;;   :keymaps 'org-mode-map
-;;   :prefix ",")
-
-;; (kixi-org-definer
-;;   :infix "r"
-;;   "" '(:ignore t :wk "org")
-;;   "i" 'org-roam-node-insert)
-
-;; (kixi-org-definer
-;;   "TAB" 'org-cycle)
+    "l" '(:ignore t :wk "link")
+    "li" 'org-insert-link
+    "ls" 'org-store-link))
 
 (use-package org-transclusion
   :straight t
@@ -207,22 +195,6 @@
 (use-package helpful
   :straight t)
 
-;; This is ~separedit~, which was initially set to be org-mode, but
-;; probably incorrectly. I'm not  sure this is the way we want it set up
-;; but we can experiment with it from here
-(use-package separedit
-  :disabled t ;; I can't get the keybinding to work consistently
-  :straight t
-  :config
-  (setq separedit-default-mode 'org-mode)
-  :general
-  (kixi-mode-leader-def
-    :keymaps 'prog-mode-map
-    :prefix "c"
-    "" '(:ignore t "comment")
-    "e" 'separedit))
-(define-key prog-mode-map        (kbd "C-c '") #'separedit)
-
 (setq org-appear-trigger 'manual)
 (add-hook 'org-mode-hook (lambda ()
                            (add-hook 'evil-insert-state-entry-hook
@@ -245,7 +217,12 @@
 (straight-use-package '(org-appear :type git :host github :repo "awth13/org-appear"))
 (add-hook 'org-mode-hook 'org-appear-mode)
 
-;; Enabling desktop-save-mode will save and restore all buffers between sessions
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Stuff that might migrate to kixi-emacs
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; enabling desktop-save-mode will save and restore all buffers between sessions
 (setq desktop-restore-frames 't)
 (desktop-save-mode 1)
 (savehist-mode 1)
