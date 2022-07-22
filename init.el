@@ -218,7 +218,27 @@
 (add-hook 'org-mode-hook 'org-appear-mode)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Stuff that might migrate to kixi-emacs
+;; stupid window tricks
+(defun delete-window-below ()
+  (interactive)
+  (save-excursion
+    (windmove-down)
+    (delete-window)))
+
+(defun delete-window-right ()
+  (interactive)
+  (save-excursion
+    (windmove-right)
+    (delete-window)))
+
+(kixi-leader-def
+  :infix "w"
+  "x" '(:ignore t :wk "delete windows")
+  "xb" 'delete-window-below
+  "xr" 'delte-window-right)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; stuff that might migrate to kixi-emacs
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
