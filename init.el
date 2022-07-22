@@ -235,7 +235,7 @@
   :infix "w"
   "x" '(:ignore t :wk "delete windows")
   "xb" 'delete-window-below
-  "xr" 'delte-window-right)
+  "xr" 'delete-window-right)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; stuff that might migrate to kixi-emacs
