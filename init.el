@@ -236,6 +236,25 @@
   "x" '(:ignore t :wk "delete windows")
   "xb" 'delete-window-below
   "xr" 'delete-window-right)
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; stuff that should be in mellon
+(defun work-browser (url &optional _new-window)
+  (interactive (browse-url-interactive-arg "URL: "))
+  (setq url (browse-url-encode-url url))
+  (let ((process-environment (browse-url-process-environment)))
+    (apply 'start-process
+           (concat "chrome " url) nil
+           browse-url-chrome-program
+           (list "--profile-directory=Profile 1" "--new-window" url))))
+
+(defun personal-browser (url &optional _new-window)
+  (interactive (browse-url-interactive-arg "URL: "))
+  (setq url (browse-url-encode-url url))
+  (let ((process-environment (browse-url-process-environment)))
+    (apply 'start-process
+           (concat "chrome " url) nil
+           browse-url-chrome-program
+           (list "--profile-directory=Default" "--new-window" url))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; stuff that might migrate to kixi-emacs
