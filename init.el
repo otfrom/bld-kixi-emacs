@@ -311,6 +311,9 @@
 (straight-use-package 'yasnippet)
 (require 'yasnippet)
 
+(straight-use-package 'pulsar)
+(pulsar-global-mode 1)
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; enabling desktop-save-mode will save and restore all buffers between sessions
