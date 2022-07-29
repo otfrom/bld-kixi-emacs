@@ -307,6 +307,9 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; stuff that might migrate to kixi-emacs
+(straight-use-package 'lsp-treemacs)
+(straight-use-package 'yasnippet)
+(require 'yasnippet)
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
