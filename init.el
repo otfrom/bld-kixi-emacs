@@ -335,6 +335,11 @@
   :defer t
   :hook (prog-mode . highlight-symbol-nav-mode))
 
+(use-package highlight-indent-guides
+  :straight t
+  :defer t
+  :diminish
+  :hook ((prog-mode) . highlight-indent-guides-mode))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; enabling desktop-save-mode will save and restore all buffers between sessions
 (setq desktop-restore-frames 't)
