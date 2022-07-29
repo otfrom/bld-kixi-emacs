@@ -217,6 +217,10 @@
 (straight-use-package '(org-appear :type git :host github :repo "awth13/org-appear"))
 (add-hook 'org-mode-hook 'org-appear-mode)
 
+(use-package pdf-tools
+  :straight t
+  :config (pdf-loader-install))
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; stupid window tricks
 (defun delete-window-below ()
