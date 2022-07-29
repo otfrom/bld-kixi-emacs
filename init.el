@@ -223,23 +223,26 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; stupid window tricks
-(defun delete-window-below ()
+(defun ide-window ()
   (interactive)
-  (save-excursion
-    (windmove-down)
-    (delete-window)))
+  (delete-other-windows)
+  (split-window-right)
+  (split-window-right)
+  (balance-windows)
+  (magit-status)
+  (windmove-right)
+  (windmove-delete-right)
+  (split-window-below -25)
+  (windmove-down)
+  (clm/open-command-log-buffer)
+  (windmove-display-same-window)
+  (cider-switch-to-repl-buffer)
+  (windmove-up)
+  (windmove-left)
+  (windmove-display-same-window)
+  (flycheck-list-errors)
+  (windmove-right))
 
-(defun delete-window-right ()
-  (interactive)
-  (save-excursion
-    (windmove-right)
-    (delete-window)))
-
-(kixi-leader-def
-  :infix "w"
-  "x" '(:ignore t :wk "delete windows")
-  "xb" 'delete-window-below
-  "xr" 'delete-window-right)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; stuff that should be in mellon
 (defun work-browser (url &optional _new-window)
