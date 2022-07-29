@@ -322,6 +322,19 @@
   :hook ((text-mode . (lambda () (flyspell-mode 1)))
          (prog-mode . (lambda () (flyspell-prog-mode)))))
 
+(use-package highlight-symbol
+  :straight t
+  :defer t
+  :diminish highlight-symbol-mode
+  :hook (prog-mode . highlight-symbol-mode)
+  :init
+  (setq highlight-symbol-occurrence-message '(explicit navigation))
+  (setq highlight-symbol-on-navigation-p t))
+
+(use-package highlight-symbol-nav-mode
+  :defer t
+  :hook (prog-mode . highlight-symbol-nav-mode))
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; enabling desktop-save-mode will save and restore all buffers between sessions
 (setq desktop-restore-frames 't)
