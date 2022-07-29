@@ -271,6 +271,12 @@
   :straight t
   :defer t
   :hook ((markdown-mode) . pandoc-mode))
+
+(use-package password-store
+  :straight t)
+(use-package pass
+  :straight t)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; stuff that might migrate to kixi-emacs
 
