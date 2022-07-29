@@ -267,6 +267,10 @@
   :straight t
   :defer t)
 
+(use-package pandoc-mode
+  :straight t
+  :defer t
+  :hook ((markdown-mode) . pandoc-mode))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; stuff that might migrate to kixi-emacs
 
