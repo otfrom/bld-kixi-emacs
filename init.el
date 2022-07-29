@@ -340,6 +340,10 @@
   :defer t
   :diminish
   :hook ((prog-mode) . highlight-indent-guides-mode))
+
+(use-package clj-deps-new
+  :straight t)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; enabling desktop-save-mode will save and restore all buffers between sessions
 (setq desktop-restore-frames 't)
