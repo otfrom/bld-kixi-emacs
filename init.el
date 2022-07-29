@@ -263,6 +263,10 @@
            browse-url-chrome-program
            (list "--profile-directory=Default" "--new-window" url))))
 
+(use-package org-noter
+  :straight t
+  :defer t)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; stuff that might migrate to kixi-emacs
 
