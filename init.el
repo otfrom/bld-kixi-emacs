@@ -314,6 +314,13 @@
 (straight-use-package 'pulsar)
 (pulsar-global-mode 1)
 
+(add-hook 'text-mode-hook 'auto-fill-mode)
+
+(use-package flyspell
+  :diminish flyspell-mode
+  :defer t
+  :hook ((text-mode . (lambda () (flyspell-mode 1)))
+         (prog-mode . (lambda () (flyspell-prog-mode)))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; enabling desktop-save-mode will save and restore all buffers between sessions
