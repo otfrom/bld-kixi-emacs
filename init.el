@@ -221,6 +221,9 @@
   :straight t
   :config (pdf-loader-install))
 
+(use-package org-real
+  :straight t)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; stupid window tricks
 (defun ide-window ()
