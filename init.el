@@ -180,6 +180,24 @@
   (setq org-transclusion-open-source-display-action-list '(display-buffer-same-window))
   (setq org-transclusion-add-all-on-activate t))
 
+(use-package consult-org-roam
+  :straight t
+  :init
+  (require 'consult-org-roam)
+  ;; Activate the minor-mode
+  (consult-org-roam-mode 1)
+  :custom
+  (consult-org-roam-grep-func #'consult-ripgrep)
+  :config
+  ;; Eventually suppress previewing for certain functions
+  (consult-customize
+   consult-org-roam-forward-links
+   :preview-key (kbd "M-."))
+  :bind
+  ("C-c n e" . consult-org-roam-file-find)
+  ("C-c n b" . consult-org-roam-backlinks)
+  ("C-c n r" . consult-org-roam-search))
+
 (use-package org-modern
   :straight t
   :after org
