@@ -346,6 +346,9 @@
 (straight-use-package 'yasnippet)
 (require 'yasnippet)
 
+(use-package consult-yasnippet
+  :straight t)
+
 (straight-use-package 'pulsar)
 (pulsar-global-mode 1)
 
@@ -390,6 +393,10 @@
 
 (use-package clj-deps-new
   :straight t)
+
+(setq cider-eldoc-display-for-symbol-at-point nil) ; disable cider showing eldoc during symbol at point
+
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; enabling desktop-save-mode will save and restore all buffers between sessions
