@@ -112,6 +112,9 @@
           ("DONE" . (:foreground "light sea green"))
           ("CANCELLED" . (:foreground "forest green")))))
 
+(use-package nix-mode
+  :straight t)
+
 (use-package org-roam
   :straight t
   :after org
