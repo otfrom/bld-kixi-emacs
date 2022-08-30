@@ -61,7 +61,7 @@
 
 (setq auth-sources '("~/.authinfo"))
 (use-package forge
-  :straight t
+  ;; :straight t ;; from nixos now
   :after magit)
 
 (use-package blamer
@@ -115,14 +115,18 @@
 (use-package nix-mode
   :straight t)
 
+(use-package emacsql-sqlite-builtin
+  :straight t)
+
 (use-package org-roam
-  :straight t
+  ;; :straight t ;; we're getting this from nixos here
   :after org
   :init
   (setq org-roam-v2-ack t)
   (setq dw/daily-note-filename "%<%Y-%m-%d>.org"
         dw/daily-note-header "#+title: %<%Y-%m-%d %a>\n\n[[roam:%<%Y-%B>]]\n\n")
   :custom
+  (org-roam-database-connector 'sqlite-builtin)
   (org-roam-directory "~/RoamNotes")
   (org-roam-dailies-directory "daily/")
   (org-roam-completion-everywhere t)
@@ -238,9 +242,15 @@
 (straight-use-package '(org-appear :type git :host github :repo "awth13/org-appear"))
 (add-hook 'org-mode-hook 'org-appear-mode)
 
-(use-package pdf-tools
-  :straight t
-  :config (pdf-loader-install))
+;; pdf-tools are from nixos
+(require 'pdf-occur)
+(require 'pdf-history)
+(require 'pdf-links)
+(require 'pdf-outline)
+(require 'pdf-annot)
+(require 'pdf-sync)
+(require 'pdf-tools)
+(pdf-tools-install)
 
 (use-package org-real
   :straight t)
@@ -305,7 +315,8 @@
   :straight t)
 
 (use-package spray
-  :straight t
+;;  :straight t
+;;  :straight (spray :type git :host github :repo "emacsmirror/spray" :branch "master")
   :commands spray-mode
   :config 
   (setq spray-wpm 600
